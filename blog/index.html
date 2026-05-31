@@ -9,6 +9,7 @@
     >
     <title>Blog | SLICO3D</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../blog-overview.css">
   </head>
   <body>
     <header class="site-header">
@@ -33,23 +34,44 @@
     </header>
 
     <main>
-      <section class="content-section section-shell" aria-labelledby="blog-overview-title">
-        <div class="section-heading">
+      <section class="blog-hero section-shell" aria-labelledby="blog-overview-title">
+        <div class="blog-hero-copy">
           <p class="eyebrow">SLICO3D Blog</p>
-          <h1 id="blog-overview-title">Aus der Werkstatt</h1>
-          <p class="hero-subtitle">
-            Projekte, Produktentwicklung und echte Einblicke in praktische 3D-Druck Lösungen.
-          </p>
+          <h1 id="blog-overview-title">SLICO3D Blog</h1>
+          <p>Projekte, Produktentwicklung und praktische 3D-Lösungen aus Bayern</p>
+        </div>
+      </section>
+
+      <section class="featured-blog section-shell" aria-labelledby="featured-blog-title">
+        <div class="section-heading">
+          <p class="eyebrow">Neuester Beitrag</p>
+          <h2 id="featured-blog-title">Aktuell im Blog</h2>
         </div>
 
-        <div class="blog-grid">
-          <a class="blog-card linked-card" href="willkommen-bei-slico3d.html">
+        <article class="featured-article linked-card featured-blog-card">
+          <a class="card-cover-link" href="willkommen-bei-slico3d.html" aria-label="Willkommen bei SLICO3D lesen"></a>
+          <div class="article-visual">
+            <span class="article-chip">Willkommen</span>
+            <img src="../assets/blog/willkommen/hero.png" alt="SLICO3D Willkommen">
+          </div>
+          <div class="article-content">
             <p class="meta">Willkommen</p>
             <h3>Willkommen bei SLICO3D</h3>
-            <p>Wie SLICO3D entstanden ist und welche Idee hinter unseren praktischen Lösungen steckt.</p>
-            <span class="button secondary compact card-action">Mehr lesen</span>
-          </a>
+            <p>
+              Wie SLICO3D entstanden ist und welche Idee hinter unseren praktischen Lösungen steckt.
+            </p>
+            <a class="button primary compact card-action" href="willkommen-bei-slico3d.html">Mehr lesen</a>
+          </div>
+        </article>
+      </section>
 
+      <section class="archive-section section-shell" aria-labelledby="archive-title">
+        <div class="section-heading">
+          <p class="eyebrow">Archiv</p>
+          <h2 id="archive-title">Weitere Beiträge</h2>
+        </div>
+
+        <div class="blog-grid archive-grid">
           <article class="blog-card">
             <p class="meta">Projekt</p>
             <h3>Der Zeitdieb - Ein besonderes 3D-Druck Projekt</h3>
