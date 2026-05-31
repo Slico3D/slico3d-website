@@ -66,15 +66,14 @@
 }
 .qr-shell,
 .qr-copy,
-.shop-button,
-.project-stats {
+.shop-button {
   position: relative;
   z-index: 1;
 }
 .qr-shell {
   display: grid;
   place-items: center;
-  margin: 28px auto 18px;
+  margin: 34px auto 24px;
   padding: clamp(14px, 3vw, 22px);
   width: min(100%, 330px);
   background:
@@ -100,40 +99,9 @@
 }
 .shop-button {
   width: min(100%, 330px);
-  margin: 18px auto 0;
-}
-.project-stats {
-  display: grid;
-  gap: 8px;
-  margin: 24px 0 0;
-}
-.project-stats div {
-  display: grid;
-  grid-template-columns: minmax(88px, 0.42fr) 1fr;
-  gap: 10px;
-  align-items: center;
-  padding: 11px 12px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius);
-}
-.project-stats dt,
-.project-stats dd {
-  margin: 0;
-}
-.project-stats dt {
-  color: rgba(237, 243, 247, 0.58);
-  font-size: 0.76rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-.project-stats dd {
-  color: #f7fbff;
-  font-weight: 850;
-  line-height: 1.25;
+  margin: 24px auto 0;
 }
 
 @media (max-width: 560px) {
   .shop-card-header { flex-direction: column; }
-  .project-stats div { grid-template-columns: 1fr; }
 }
