@@ -16,3 +16,27 @@ if (menuToggle && siteNav) {
     }
   });
 }
+
+const footerLinks = [
+  ["Impressum", "/impressum.html"],
+  ["Datenschutz", "/datenschutz.html"],
+  ["Kontakt", "/#kontakt"],
+  ["Instagram", "https://www.instagram.com/slico.3d/"],
+  ["eBay Shop", "https://www.ebay.de/usr/slico3d"],
+];
+
+const footerNav = document.querySelector(".site-footer nav");
+if (footerNav) {
+  footerNav.innerHTML = footerLinks
+    .map(([label, href]) => `<a href="${href}">${label}</a>`)
+    .join("");
+}
+
+document.querySelectorAll('a[href="https://www.instagram.com/slico3d/"]').forEach((link) => {
+  link.setAttribute("href", "https://www.instagram.com/slico.3d/");
+});
+
+document.querySelectorAll('img[src$="assets/branding/Logotyp.png"]').forEach((logo) => {
+  logo.setAttribute("src", logo.getAttribute("src").replace("Logotyp.png", "Logotyp.svg"));
+  logo.style.background = "transparent";
+});
