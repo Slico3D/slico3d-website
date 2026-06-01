@@ -1,1 +1,2 @@
-# Legal pages are served as static root .html files and extensionless directory index pages.
+/impressum /impressum/ 301
+/datenschutz /datenschutz/ 301
