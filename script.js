@@ -40,3 +40,13 @@ document.querySelectorAll('img[src$="assets/branding/Logotyp.png"]').forEach((lo
   logo.setAttribute("src", logo.getAttribute("src").replace("Logotyp.png", "Logotyp.svg"));
   logo.style.background = "transparent";
 });
+
+document.querySelectorAll(".product-card").forEach((card) => {
+  const title = card.querySelector("h3");
+  const link = card.querySelector(".text-link");
+
+  if (title?.textContent.trim() === "WAGO Halter" && link) {
+    link.setAttribute("href", "/products/wago-221-413-halter.html");
+    link.textContent = "Produktseite ansehen";
+  }
+});
