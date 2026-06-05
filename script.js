@@ -44,9 +44,18 @@ document.querySelectorAll('img[src$="assets/branding/Logotyp.png"]').forEach((lo
 document.querySelectorAll(".product-card").forEach((card) => {
   const title = card.querySelector("h3");
   const link = card.querySelector(".text-link");
+  const visual = card.querySelector(".product-visual.wago");
 
-  if (title?.textContent.trim() === "WAGO Halter" && link) {
-    link.setAttribute("href", "/products/wago-221-413-halter.html");
-    link.textContent = "Produktseite ansehen";
+  if (title?.textContent.trim() === "WAGO Halter") {
+    if (link) {
+      link.setAttribute("href", "/products/wago-krasnal/");
+      link.textContent = "Produktseite ansehen";
+    }
+
+    if (visual && !visual.querySelector("img")) {
+      visual.innerHTML = '<img src="/assets/products/wago-krasnal/hero-with-wago/orange.jpg" alt="Oranger WAGO 221-413 Halter mit eingesetzter Klemme">';
+      visual.style.display = "grid";
+      visual.style.placeItems = "center";
+    }
   }
 });
