@@ -14,11 +14,16 @@
 .product-feature-list li::before { position: absolute; left: 14px; top: 12px; content: "\2713"; color: #0d261e; font-weight: 900; }
 .product-section { padding: clamp(44px, 6vw, 82px) 0; }
 .variant-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.variant-card { overflow: hidden; padding: 14px; transition: transform 180ms ease, border-color 180ms ease; }
+.variant-card { overflow: hidden; padding: 14px; transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease; }
+.variant-card-linked { display: block; color: inherit; text-decoration: none; cursor: pointer; }
 .variant-card:hover, .color-card:hover, .usecase-card:hover, .benefit-card:hover { border-color: color-mix(in srgb, var(--cyan) 50%, var(--line)); transform: translateY(-2px); }
+.variant-card-linked:hover, .variant-card-linked:focus-visible { border-color: color-mix(in srgb, var(--green) 58%, var(--line)); box-shadow: 0 24px 72px rgba(79, 209, 224, 0.18); transform: translateY(-4px); outline: none; }
 .variant-card img { aspect-ratio: 4 / 3; }
 .variant-card h3 { margin-top: 16px; font-size: 1.12rem; }
 .variant-card p, .safety-copy p, .color-card p, .usecase-card h3, .faq-grid p, .benefit-card p, .bayern-banner p { color: var(--muted); }
+.variant-card-action { margin-top: 14px; }
+.variant-card-action.is-disabled { cursor: not-allowed; opacity: 0.56; filter: grayscale(0.25); box-shadow: none; }
+.variant-card-disabled { opacity: 0.92; }
 .benefit-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .benefit-card { padding: 20px; transition: transform 180ms ease, border-color 180ms ease; }
 .benefit-card h3 { font-size: 1.08rem; }
