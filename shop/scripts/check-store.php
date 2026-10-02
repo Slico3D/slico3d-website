@@ -6,7 +6,9 @@ function slico_check($condition, $message) {
 }
 slico_check(wp_get_environment_type() === 'local', 'Local environment');
 slico_check(get_locale() === 'de_DE', 'German language');
-slico_check(class_exists('WooCommerce') && class_exists('WC_Germanized'), 'Both shop plugins active');
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+slico_check(is_plugin_active('woocommerce/woocommerce.php')
+    && is_plugin_active('woocommerce-germanized/woocommerce-germanized.php'), 'Both shop plugins active');
 slico_check(get_stylesheet() === 'slico3d', 'SLICO3D theme active');
 slico_check(get_option('woocommerce_currency') === 'EUR', 'EUR currency');
 slico_check(get_option('woocommerce_enable_guest_checkout') === 'yes', 'Guest checkout enabled');

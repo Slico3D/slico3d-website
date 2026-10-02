@@ -3,7 +3,9 @@
 if (wp_get_environment_type() !== 'local') {
     WP_CLI::error('This setup is for a local environment only.');
 }
-if (!class_exists('WooCommerce') || !class_exists('WC_Germanized')) {
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+if (!is_plugin_active('woocommerce/woocommerce.php')
+    || !is_plugin_active('woocommerce-germanized/woocommerce-germanized.php')) {
     WP_CLI::error('WooCommerce and Germanized must both be active.');
 }
 

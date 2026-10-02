@@ -2,3 +2,6 @@
 backups/
 test-output/
 *.log
+node_modules/
+package.json
+package-lock.json
