@@ -1,0 +1,43 @@
+/*
+Theme Name: SLICO3D
+Description: SLICO3D child theme for the local shop foundation.
+Author: SLICO3D
+Template: storefront
+Version: 0.1.0
+Text Domain: slico3d
+*/
+
+:root { --slico-ink:#17343a; --slico-muted:#577078; --slico-cyan:#4fd1e0; --slico-green:#5fd38d; --slico-yellow:#f5b942; --slico-line:#e2ecee; }
+body { color:var(--slico-ink); background:#fff; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+h1,h2,h3 { color:var(--slico-ink); font-weight:700; letter-spacing:-.03em; }
+a { color:#12666f; }
+a:focus-visible,button:focus-visible { outline:3px solid #167582; outline-offset:4px; }
+.site-header { background:#fff; border-bottom:1px solid var(--slico-line); padding-top:1.6rem; }
+.slico-brand { display:block; max-width:230px; }
+.slico-brand img { width:230px; height:auto; }
+.site-header .site-branding { margin-bottom:1.25rem; }
+.main-navigation ul li a { color:var(--slico-ink); font-weight:600; }
+.site-content { padding-top:2rem; }
+.slico-home { padding-bottom:3rem; }
+.slico-hero { background:linear-gradient(125deg,#effafb,#f4fbf4 70%,#fff9e8); border:1px solid var(--slico-line); border-radius:24px; padding:clamp(1.8rem,5vw,4.5rem); margin:1rem 0 2rem; }
+.slico-eyebrow { color:#22636a; text-transform:uppercase; letter-spacing:.13em; font-size:.78rem; font-weight:750; }
+.slico-hero h1 { font-size:clamp(2.1rem,5vw,4rem); line-height:1.1; max-width:800px; margin:.7rem 0 1.2rem; }
+.slico-hero p:not(.slico-eyebrow) { max-width:590px; color:var(--slico-muted); font-size:1.12rem; }
+.slico-actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.8rem; }
+.slico-actions .button { border-radius:10px; background:var(--slico-ink); color:white; padding:.85rem 1.4rem; text-decoration:none; }
+.slico-actions .button.secondary { background:white; color:var(--slico-ink); border:1px solid #cbdfe1; }
+.slico-promises { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:2rem 0; }
+.slico-promises article { border:1px solid var(--slico-line); border-top:4px solid var(--slico-cyan); border-radius:12px; padding:1.4rem; }
+.slico-promises article:nth-child(2) { border-top-color:var(--slico-green); }
+.slico-promises article:nth-child(3) { border-top-color:var(--slico-yellow); }
+.slico-promises h2 { font-size:1.15rem; margin:0 0 .5rem; }
+.slico-promises p { color:var(--slico-muted); margin:0; }
+.slico-empty { border:1px dashed #bdced1; border-radius:16px; padding:2rem; margin:2rem 0; text-align:center; }
+.slico-empty h2 { font-size:1.6rem; }
+.slico-empty p { color:var(--slico-muted); margin-bottom:0; }
+.woocommerce-info { background:#edf8f9; border-left-color:#1b7b85; color:var(--slico-ink); }
+.woocommerce-info a { color:#12666f; }
+.site-footer { background:#f4f8f8; color:var(--slico-muted); }
+.slico-footer { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.slico-footer p { margin:0; }
+@media (max-width:767px) { .slico-promises { grid-template-columns:1fr; } .slico-brand { max-width:190px; } .slico-empty { padding:1.4rem; } }

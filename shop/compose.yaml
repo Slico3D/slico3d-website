@@ -1,0 +1,79 @@
+name: slico3d-shop-local
+
+x-wp-environment: &wp-environment
+  WORDPRESS_DB_HOST: db:3306
+  WORDPRESS_DB_NAME: slico3d
+  WORDPRESS_DB_USER: slico3d
+  WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:?Run start.ps1 to create .env first}
+  SLICO_SITE_URL: http://localhost:${SHOP_PORT:-8080}
+  WORDPRESS_DEBUG: "1"
+  WORDPRESS_CONFIG_EXTRA: |
+    define('WP_ENVIRONMENT_TYPE', 'local');
+    define('WP_HOME', getenv('SLICO_SITE_URL'));
+    define('WP_SITEURL', getenv('SLICO_SITE_URL'));
+    define('WP_DEBUG_DISPLAY', false);
+    define('DISALLOW_FILE_EDIT', true);
+
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: slico3d
+      MARIADB_USER: slico3d
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Run start.ps1 to create .env first}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Run start.ps1 to create .env first}
+    volumes:
+      - database:/var/lib/mysql
+    healthcheck:
+      test: [CMD, healthcheck.sh, --connect, --innodb_initialized]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+
+  wordpress:
+    image: wordpress:7.1.2-php8.3-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${SHOP_PORT:-8080}:80"
+    environment: *wp-environment
+    volumes: &wp-volumes
+      - wordpress:/var/www/html
+      - ./theme:/var/www/html/wp-content/themes/slico3d:ro
+      - ./mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./scripts:/workspace/scripts:ro
+    restart: unless-stopped
+
+  mailpit:
+    image: axllent/mailpit:v1.31.3
+    ports:
+      - "127.0.0.1:${MAIL_PORT:-8025}:8025"
+    restart: unless-stopped
+
+  wpcli:
+    image: wordpress:cli-2.12.0-php8.3
+    user: "33:33"
+    working_dir: /var/www/html
+    profiles: [tools]
+    entrypoint: [/bin/sh]
+    command: [/workspace/scripts/bootstrap.sh]
+    environment:
+      <<: *wp-environment
+      WP_CLI_CACHE_DIR: /tmp/wp-cli-cache
+      LOCAL_ADMIN_USER: ${LOCAL_ADMIN_USER:-slico_admin}
+      LOCAL_ADMIN_PASSWORD: ${LOCAL_ADMIN_PASSWORD:?Run start.ps1 to create .env first}
+      LOCAL_ADMIN_EMAIL: ${LOCAL_ADMIN_EMAIL:-admin@example.invalid}
+    volumes: *wp-volumes
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+      mailpit:
+        condition: service_started
+
+volumes:
+  database:
+  wordpress:

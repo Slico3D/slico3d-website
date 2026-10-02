@@ -1,0 +1,4 @@
+.env
+backups/
+test-output/
+*.log

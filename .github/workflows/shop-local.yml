@@ -1,0 +1,54 @@
+name: SLICO3D empty shop
+on:
+  push:
+    branches: [shop-platform-foundation]
+    paths: ["shop/**", ".github/workflows/shop-local.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: shop-local-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  empty-shop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Boot local shop using the same PowerShell launcher
+        shell: pwsh
+        run: ./shop/start.ps1 -NoBrowser
+      - name: PHP syntax and actual shop state
+        working-directory: shop
+        run: |
+          docker compose run --rm --entrypoint sh wpcli -c 'find /workspace/scripts /var/www/html/wp-content/themes/slico3d /var/www/html/wp-content/mu-plugins -name "*.php" -exec php -l {} \;'
+          docker compose run --rm --entrypoint wp wpcli eval-file /workspace/scripts/check-store.php
+          docker compose run --rm --entrypoint wp wpcli option update slico_bootstrap_probe preserved
+          docker compose run --rm wpcli
+          test "$(docker compose run --rm --entrypoint wp wpcli option get slico_bootstrap_probe)" = preserved
+      - name: Install browser test tools
+        working-directory: shop
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Desktop and mobile smoke test
+        working-directory: shop
+        run: node scripts/check-browser.cjs
+      - name: Verify backup command
+        shell: pwsh
+        run: ./shop/backup.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shop-preview
+          path: shop/test-output/*.png
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Diagnostic logs on failure
+        if: failure()
+        working-directory: shop
+        run: docker compose logs --tail=80 wordpress mailpit
+      - name: Stop disposable test environment
+        if: always()
+        working-directory: shop
+        run: docker compose down
