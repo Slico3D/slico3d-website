@@ -1,5 +1,7 @@
 # SLICO3D Homepage Specification
 
+> Historical specification for the first homepage. The current olive redesign proposal is described in `design/olive-refresh/README.md` and `BRAND_GUIDE.md`. The proposal prioritizes the SLICO3D product catalog, with eBay as a secondary link until the integrated shop launches.
+
 ## Goal
 
 Create the first public homepage for SLICO3D.

@@ -2,6 +2,13 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 
 if (menuToggle && siteNav) {
+  const closeMenu = (restoreFocus = false) => {
+    siteNav.classList.remove("is-open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("menu-open");
+    if (restoreFocus) menuToggle.focus();
+  };
+
   menuToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
@@ -9,11 +16,17 @@ if (menuToggle && siteNav) {
   });
 
   siteNav.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
-      siteNav.classList.remove("is-open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
-    }
+    if (event.target instanceof Element && event.target.closest("a")) closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && siteNav.classList.contains("is-open")) closeMenu(true);
+  });
+  document.addEventListener("click", (event) => {
+    if (event.target instanceof Node && !siteNav.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
+  });
+  window.matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
+    if (event.matches) closeMenu();
   });
 }
 
@@ -37,7 +50,7 @@ document.querySelectorAll('a[href="https://www.instagram.com/slico3d/"]').forEac
 });
 
 document.querySelectorAll('img[src$="assets/branding/Logotyp.png"]').forEach((logo) => {
-  logo.setAttribute("src", logo.getAttribute("src").replace("Logotyp.png", "Logotyp.svg"));
+  logo.setAttribute("src", logo.getAttribute("src").replace("Logotyp.png", "Logotyp-field.svg"));
   logo.style.background = "transparent";
 });
 

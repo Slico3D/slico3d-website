@@ -52,11 +52,7 @@ Preferred style:
 
 Clean and modern.
 
-Inspired by:
-
-* Apple
-* Notion
-* Stripe
+Inspired by practical workshop tools and restrained technical design. Olive, graphite, sand and silver; small diagonal accents, readable text and real product photos.
 
 Use plenty of whitespace.
 
@@ -68,15 +64,17 @@ Design should feel premium but approachable.
 
 ## Color Palette
 
-Primary colors:
+Website design proposal:
 
-* #4fd1e0
-* #5fd38d
-* #f5b942
+* Graphite background: #141713
+* Olive accent: #a5af79
+* Sand accent: #d3c5a8
+* Off-white text: #eeede6
+* Muted text: #b6b8ad
 
-Use white backgrounds by default.
+Use a consistent dark appearance in this proposal. Keep actual product colors unchanged. Avoid camouflage, aggressive military imagery, neon colors and decorative chrome effects.
 
-Support automatic Dark Mode based on user device preferences.
+The website palette is a proposal on `design/olive-refresh`; it does not change the existing eBay listing master.
 
 ---
 
@@ -93,7 +91,7 @@ Available versions:
 * Logo z Nazwa.png
 * Logo z nazwa2.png
 
-Use logo with text whenever possible.
+Use logo with text whenever possible. The website proposal uses `Logotyp-field.svg`, a flat silver/olive wordmark. Keep existing original files available.
 
 ---
 
@@ -111,27 +109,9 @@ Hero message:
 
 The homepage should flow naturally:
 
-Hero Section
+Hero → product highlights → small-business introduction → workshop/blog → contact.
 
-↓
-
-Latest News / Blog Posts
-
-↓
-
-Featured Products
-
-↓
-
-Made in Bavaria Section
-
-↓
-
-Instagram Feed
-
-↓
-
-Contact
+Link to Instagram without an embedded feed. Use existing real product photos. The primary homepage action opens the SLICO3D product section; eBay is a secondary link while the integrated shop is being prepared.
 
 Avoid a single static company business card page.
 
@@ -150,7 +130,7 @@ Current focus:
 
 Products sold on eBay should also appear on the website.
 
-eBay remains the primary sales channel.
+An integrated WooCommerce shop is being prepared. Until it launches, existing eBay offers remain accessible as a secondary route. Do not display a working cart or checkout before the shop is ready.
 
 ---
 
