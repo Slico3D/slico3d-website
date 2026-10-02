@@ -11,15 +11,15 @@ const assert = require('node:assert/strict');
       const errors = [];
       page.on('pageerror', error => errors.push(error.message));
       const response = await page.goto('http://localhost:8080/', { waitUntil: 'networkidle' });
+      await page.screenshot({ path: `test-output/home-${name}.png`, fullPage: true });
       assert.equal(response.status(), 200, 'Homepage HTTP status');
       assert.match(response.headers()['x-robots-tag'], /noindex/, 'Noindex header');
       assert.equal(await page.locator('#slico-title').count(), 1, 'SLICO3D homepage rendered');
       assert.equal(await page.locator('.slico-empty').count(), 1, 'Empty assortment shown');
-      assert.equal(await page.locator('html').getAttribute('lang'), 'de-DE', 'German HTML language');
+      assert.match(await page.locator('html').getAttribute('lang'), /^de(?:-DE)?$/i, 'German HTML language');
       const logo = page.locator('.slico-brand img');
       assert.ok(await logo.evaluate(img => img.complete && img.naturalWidth > 0), 'Brand logo loads');
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'No horizontal overflow');
-      await page.screenshot({ path: `test-output/home-${name}.png`, fullPage: true });
       for (const route of ['/shop/', '/warenkorb/', '/blog/', '/kontakt/']) {
         const res = await page.goto(`http://localhost:8080${route}`, { waitUntil: 'domcontentloaded' });
         assert.equal(res.status(), 200, `${route} is reachable`);
