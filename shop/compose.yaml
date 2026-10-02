@@ -62,6 +62,7 @@ services:
     environment:
       <<: *wp-environment
       WP_CLI_CACHE_DIR: /tmp/wp-cli-cache
+      WP_CLI_CONFIG_PATH: /workspace/scripts/wp-cli.yml
       LOCAL_ADMIN_USER: ${LOCAL_ADMIN_USER:-slico_admin}
       LOCAL_ADMIN_PASSWORD: ${LOCAL_ADMIN_PASSWORD:?Run start.ps1 to create .env first}
       LOCAL_ADMIN_EMAIL: ${LOCAL_ADMIN_EMAIL:-admin@example.invalid}

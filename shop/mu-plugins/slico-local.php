@@ -17,6 +17,9 @@ add_filter('wp_headers', static function ($headers) {
 });
 
 // All WordPress mail is delivered to the local inbox, never to real recipients.
+// localhost alone is not a valid sender domain for PHPMailer.
+add_filter('wp_mail_from', static function () { return 'shop@slico3d.test'; });
+add_filter('wp_mail_from_name', static function () { return 'SLICO3D'; });
 add_action('phpmailer_init', static function ($mailer) {
     $mailer->isSMTP();
     $mailer->Host = 'mailpit';

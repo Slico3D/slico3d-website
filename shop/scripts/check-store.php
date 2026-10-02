@@ -26,5 +26,6 @@ foreach (array('impressum', 'datenschutz', 'widerruf', 'agb', 'versand-zahlung')
 foreach (WC()->payment_gateways()->payment_gateways() as $gateway) {
     slico_check($gateway->enabled !== 'yes', 'No live gateway: ' . $gateway->id);
 }
+add_action('wp_mail_failed', static function ($error) { WP_CLI::warning($error->get_error_message()); });
 slico_check(wp_mail('nobody@example.invalid', 'SLICO3D local test', 'Local mail delivery test.'), 'Test mail sent to local inbox');
 WP_CLI::success('Empty shop integration checks passed.');
