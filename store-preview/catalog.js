@@ -14,7 +14,7 @@
   }
   function price(product) {
     const p = product.prices;
-    if (!p || !/^\\d+$/.test(text(p.price))) return "Preis auf Anfrage";
+    if (!p || !/^\d+$/.test(text(p.price))) return "Preis auf Anfrage";
     const minor = Number.isInteger(p.currency_minor_unit) ? p.currency_minor_unit : 2;
     const amount = Number(p.price) / (10 ** minor);
     if (!Number.isFinite(amount)) return "Preis auf Anfrage";
