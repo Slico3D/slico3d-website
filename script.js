@@ -28,6 +28,7 @@ const footerLinks = [
 const footerNav = document.querySelector(".site-footer nav");
 if (footerNav) {
   footerNav.innerHTML = footerLinks
+    .filter(([, href]) => !document.body.hasAttribute("data-direct-store") || !href.includes("ebay.de"))
     .map(([label, href]) => `<a href="${href}">${label}</a>`)
     .join("");
 }
