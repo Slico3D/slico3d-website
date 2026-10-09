@@ -1,0 +1,41 @@
+/* SLICO3D – WooCommerce checkout appearance. Scoped to checkout only. */
+body.woocommerce-checkout:not(.woocommerce-order-received){background:#0d141b!important;color:#f4f7f8!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .site,
+body.woocommerce-checkout:not(.woocommerce-order-received) .site-content,
+body.woocommerce-checkout:not(.woocommerce-order-received) .content-area,
+body.woocommerce-checkout:not(.woocommerce-order-received) .site-main{background:#0d141b!important;color:#f4f7f8!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .site-header{background:#172730!important;border-bottom:1px solid #32515d!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .site-title a,
+body.woocommerce-checkout:not(.woocommerce-order-received) .site-header a{color:#f4f7f8!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .site-header .site-branding .site-title a{color:#64d5b6!important;font-weight:800}
+body.woocommerce-checkout:not(.woocommerce-order-received) #secondary,
+body.woocommerce-checkout:not(.woocommerce-order-received) .widget-area{display:none!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) #primary,
+body.woocommerce-checkout:not(.woocommerce-order-received) .content-area{float:none!important;width:100%!important;max-width:1120px!important;margin:0 auto!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .entry-title{color:#f4f7f8!important;font-weight:750}
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-sidebar,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-checkout__main,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-checkout-step,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-order-summary,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-totals-wrapper{color:#f4f7f8!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-title,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-checkout-step__heading-title,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-product-name,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-totals-item__label,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-totals-item__value,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-radio-control__label{color:#f4f7f8!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-text-input input,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-form .wc-block-components-text-input input,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-combobox .wc-block-components-combobox-control input,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-text-input label,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-combobox label{background:#172730!important;color:#f4f7f8!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-text-input input,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-combobox-control input{border:1px solid #56737e!important;border-radius:9px!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-button:not(.is-link),
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-checkout-place-order-button{background:#64d5b6!important;color:#14252b!important;border:0!important;border-radius:9px!important;font-weight:800!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-order-summary,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-checkout-step,
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-sidebar-layout .wc-block-components-main{background:#172730!important;border-radius:14px!important;padding:20px!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) a{color:#64d5b6}
+body.woocommerce-checkout:not(.woocommerce-order-received) .wc-block-components-notice-banner{color:#1b262d!important}
+body.woocommerce-checkout:not(.woocommerce-order-received) .site-footer{background:#0d141b!important;border-top:1px solid #32515d!important}
